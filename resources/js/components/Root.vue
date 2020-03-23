@@ -1,9 +1,12 @@
 <template>
-    <div>
-        <Computer/>
-        <Player/>
-        <ScoreKeeper/>
-        <Buttons/>
+    <div id="page-wrapper">
+        <div id="grid-wrapper" class="row align-items-center no-gutters">
+            <Player id="player-container" class="col-4 game"/>
+            <div id="middlesection" class="col-4 game">
+                <ScoreKeeper/>
+            </div>
+            <Computer id="computer-container" class="col-4 game" />
+        </div>
     </div>
 </template>
 
@@ -11,7 +14,6 @@
 import Computer from './Computer.vue';
 import Player from './Player';
 import ScoreKeeper from './ScoreKeeper.vue';
-import Buttons from './Buttons.vue';
 
     export default {
         name: "Root",
@@ -19,7 +21,20 @@ import Buttons from './Buttons.vue';
            ScoreKeeper,
            Computer,
            Player,
-           Buttons,
        }
     }
 </script>
+
+<style>
+#page-wrapper{
+    height: 100%;
+
+}
+#grid-wrapper{
+    height:80vh;
+    margin-top: 10vh;
+}
+.game{
+    height: 80vh;
+}
+</style>
