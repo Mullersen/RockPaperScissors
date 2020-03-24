@@ -1,11 +1,18 @@
 <template>
-
-        <div id="score">
-            <p>Player Score: {{playerScore}}</p>
-            <p>Computer Score: {{computerScore}}</p>
+        <div id="score" class="shadow">
+            <div class="row text-center my-2">
+                <div class="col-6">
+                    <h2>Player Score</h2>
+                    <h1 class="text-white">{{playerScore}}</h1>
+                </div>
+                <div class="col-6">
+                    <h2>Computer Score:</h2>
+                    <h1 class="text-white">{{computerScore}}</h1>
+                </div>
+            </div>
+            <h2 class="text-center my-4">{{winner}}</h2>
             <Buttons/>
         </div>
-
 </template>
 
 <script>
@@ -25,17 +32,21 @@ export default {
             playerScore: 0,
             computerScore: 0,
             playerMove : String,
+            winner: "Choose a move to start"
         }
     },
     methods: {
          draw : function(){
             this.$root.$emit('draw');
+            this.winner = "DRAW";
         },
         computerWinner: function(){
             this.$root.$emit('computerWinner');
+            this.winner = "YOU LOOSE";
         },
         playerWinner: function(){
             this.$root.$emit('playerWinner');
+            this.winner = "YOU WIN!!";
         },
         updatePlayerMove: function(value){
             if(value == 1){
